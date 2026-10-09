@@ -1,0 +1,27 @@
+% NT3 — Lausn
+Við höfum $a \mid (b+8)$ og $a \mid (b^{2}-1)$.
+Látum $b + 8 = k_{1}a$ og $b^{2} - 1 = k_{2}a$.
+Þá fæst
+\[
+k_{1}^{2}a^{2} - 16k_{1}a + 63 = k_{2}a \quad \Longrightarrow \quad a \mid 63.
+\]
+Þar sem $a$ er prímtala, er $a\in\{3,7\}$.
+Ef $a=3$, þá er $b+c=a^{2}-1=8$, en hvorki $b$ né $c$ geta báðar verið prímtölur sem gefa summuna $8$ (því $3+5=8$ brýtur fyrsta skilyrðið).  
+Því er $a=7$.
+
+Nú gildir $b+c=a^{2}-1=48$.
+Við getum skrifað $b=7k+1$ (því $a\mid b+8$ gefur $b\equiv -8\equiv 6\pmod{7}$, eða $b=7k+6$ — athugum bæði tilvik).
+Prófum smærri möguleika fyrir $b$ þar sem bæði $b$ og $c=48-b$ eru prímtölur.
+
+\[
+\begin{array}{c|c}
+b & c=48-b \\ \hline
+41 & 7 \\
+\end{array}
+\]
+Einungis $(b,c)=(41,7)$ virkar.
+
+Því fæst
+\[
+(a,b,c)=(7,41,7), \quad abc = 7\cdot41\cdot7 = \boxed{2009}.
+\]

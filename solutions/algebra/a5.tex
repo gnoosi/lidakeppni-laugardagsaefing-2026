@@ -1,0 +1,32 @@
+% DRÖG — stutt lausn
+Við getum sýnt að
+\[
+f(n+1) = \frac{2 f(1)}{(n+1)(n+2)}.
+\]
+Þetta fæst með þrepun á $n$.
+
+\begin{itemize}
+    \item[i)] Fyrir $n=1$ gefur jafnan $f(1)=1$ og $f(1)+f(2)=4f(2)\Rightarrow f(2)=\tfrac{1}{3}$.
+    \item[ii)] Gerum ráð fyrir að 
+    $$f(k)=\frac{2}{k(k+1)} = \frac{2}{k} - \frac{2}{k+1}$$ gildir fyrir öll $k\leq n$,
+þá fæst
+\[
+f(1) + f(2) + \dots + f(n) + f(n+1) = (n+1)^2 f(n+1) 
+\]
+Vinstri hliðina má einfalda í 
+\[
+\qty(\frac{2}{1} - \frac{2}{2}) + \qty(\frac{2}{2} - \frac{2}{3}) + \dots + \qty(\frac{2}{n} - \frac{2}{n+1}) + f(n+1) = 2 - \frac{2}{n+1} + f(n+1)
+\]
+Einföldun gefur 
+\[
+\qty(n^2+2n)f(n+1) = \frac{2n}{n+1} 
+\]
+\end{itemize}
+Því er almenn lausn
+\[
+f(n)=\frac{2}{n(n+1)}.
+\]
+Þannig fæst
+\[
+f(2025)=\frac{2}{2025\cdot2026}.
+\]

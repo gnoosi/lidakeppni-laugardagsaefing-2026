@@ -1,0 +1,33 @@
+% DRÖG — stutt lausn
+Athugum að fyrir hvaða tölur $x,y,z$ gildir
+\[
+xyz + xy + yz + zx + x + y + z = (x+1)(y+1)(z+1) - 1.
+\]
+Því jafngildir hneppið
+\[
+    \begin{cases}
+    (a+1)(b+1)(c+1)=2,\\[2pt]
+    (b+1)(c+1)(d+1)=10,\\[2pt]
+    (c+1)(d+1)(a+1)=10,\\[2pt]
+    (d+1)(a+1)(b+1)=10.
+    \end{cases}
+\]
+
+Setjum $p=a+1$, $q=b+1$, $r=c+1$, $s=d+1$. Þá fæst
+\[
+pqr=2,\qquad qrs=10,\qquad rsp=10,\qquad spq=10.
+\]
+Deilum hverri af síðari þremur með þeirri fyrstu:
+\[
+\frac{qrs}{pqr}=\frac{s}{p}=5,\quad
+\frac{rsp}{pqr}=\frac{s}{q}=5,\quad
+\frac{spq}{pqr}=\frac{s}{r}=5.
+\]
+Þar með er $p=q=r$ og $s=5p$. Úr $pqr=2$ fæst $p^3=2$ og því
+\[
+p=q=r=\sqrt[3]{2},\qquad s=5\sqrt[3]{2}.
+\]
+Innsetning gefur eina lausnina
+\[
+a=b=c=\sqrt[3]{2}-1,\qquad d=5\sqrt[3]{2}-1.
+\]

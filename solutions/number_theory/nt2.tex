@@ -1,0 +1,68 @@
+% Talnafræði — Þrenndir samliggjandi (teljandi lausn, án KLS/CRT)
+
+% Lausn
+Skrifum $2025=3^4\cdot5^2=81\cdot25$.
+Í hverri þrennd $k(k+1)(k+2)$ er nákvæmlega ein tala margfeldi af $3$,
+þannig að til að fá veldið $3^4$ þarf einhver talnanna að vera margfeldi af $81$.
+Sömuleiðis þarf einhver talnanna að vera margfeldi af $25$.
+Þannig að leitin snýst um þrenndir sem innihalda bæði
+margfeldi af $81$ og margfeldi af $25$.
+
+Látum $m$ vera margfeldi af $81$ á bilinu $[1,2027]$.
+Þá er $m=81t$ með $1\le t\le 25$ (því $81\cdot 26>2027$).
+Þrenndirnar sem innihalda $m$ eru
+\[
+\{m-2,m-1,m\},\quad \{m-1,m,m+1\},\quad \{m,m+1,m+2\}.
+\]
+Slík þrennd er gild þá og því aðeins að \emph{einhver} talnanna
+$m-2,m-1,m,m+1,m+2$ sé margfeldi af $25$, sem jafngildir því að
+\[
+m\equiv 0,\ \pm 1,\ \pm 2 \pmod{25}. \tag{$\star$}
+\]
+
+Athugum að $81\equiv 6 \pmod{25}$, þannig að leifarnar
+\(\mod 25\) fyrir $m=81t$ eru einfaldlega leifarnar fyrir
+röðina $6,12,18,24, \ldots$ (þ.e.\ bætum 6 í hvert skref).
+Í fyrsta $25$-töfluhringnum ($t=1,\ldots,25$) fáum við:
+\[
+\begin{array}{c|cccccccccc}
+t       & 1&2&3&4&5&6&7&8&9&\cdots\\
+81t\bmod 25 & 6&12&18&\mathbf{24}&5&11&17&\mathbf{23}&4&\cdots
+\end{array}
+\]
+Haldið áfram til $t=25$ og athugið hvar leifarnar verða $0,\pm1,\pm2$:
+\[
+\boxed{t=4,\ 8,\ 17,\ 21,\ 25}
+\]
+sem samsvarar
+\[
+m=81t\in\{324,\ 648,\ 1377,\ 1701,\ 2025\}.
+\]
+Þetta eru einmitt þau $81$-margfeldi í bilinu $[1,2027]$ sem eru
+í fjarlægð $\le 2$ frá margfeldum af $25$.
+
+\medskip
+Nú teljum við fyrir hvert $m$ hve mörg upphafsgildi $k$ gefa þrennd sem inniheldur
+bæði $m$ fyrir $3^4$ og viðeigandi $25$-margfeldi:
+
+\[
+\begin{array}{c|c|l}
+m \bmod 25 & 25\text{-margfeldið í nágrenninu} & \text{gild }k \text{ (fjöldi)}\\
+\hline
+0          & m                                  & k=m-2,\ m-1,\ m \quad (3)\\
+1          & m-1                                & k=m-2,\ m-1 \quad (2)\\
+-1\ (24)   & m+1                                & k=m-1,\ m \quad (2)\\
+2          & m-2                                & k=m-2 \quad (1)\\
+-2\ (23)   & m+2                                & k=m \quad (1)
+\end{array}
+\]
+
+Fyrir okkar fimm $m$ gild eru leifarnar $24,\ 23,\ 2,\ 1,\ 0$,
+svo heildarfjöldinn er
+\[
+2\;+\;1\;+\;1\;+\;2\;+\;3 \;=\; 9.
+\]
+
+Þar með er fjöldi slíkra þrennda á bilinu $k=1,\ldots,2025$ jafnt $9$.
+
+Dæmið er einnig hægt að leysa með kínversku leifarsetningunni.

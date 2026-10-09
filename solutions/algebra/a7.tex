@@ -1,0 +1,58 @@
+% DRÖG — stutt lausn
+Setjum $x = 0$:
+\[
+f(0) f(f(y)) = f(0).
+\]
+Ef $f(0) \neq 0$ fæst að $f(f(y)) = 1$ fyrir öll $y$.  
+Það þýðir að $f$ myndi varpa öllum gildum á rauntölum þannig að samsett fall $f \circ f$ sé fast jafnt $1$.  
+Setjum þetta í upphaflegu jöfnuna:
+\[
+f(x)(x + 1) = f(x^2) + x f(y).
+\]
+Við getum þá sett $y = 0$ og fáum
+\[
+f(x)(x + 1) = f(x^2) + x f(0).
+\]
+Frádráttur jafnanna gefur $x f(y) = x f(0)$ fyrir öll $x,y$. Fyrir $x \neq 0$ fæst $f(y) = f(0)$ fyrir öll $y$, sem þýðir að $f$ væri fastafall.  
+Ef $f(x) \equiv c$, þá gefur upphaflega jafnan $c(x + c) = c x + x c$, sem einfaldast í $c^2 = c x$ fyrir öll $x$,  
+sem er ómögulegt. Því hlýtur að gilda
+\[
+f(0) = 0.
+\]
+
+Setjum þá $y = 0$:
+\[
+f(x)\qty(x + f(f(0))) = f(x^2) + x f(0) \quad\Rightarrow\quad f(x)x = f(x^2).
+\]
+Þetta má setja inn í upphaflegu jöfnuna og fá:
+\[
+f(x) f(f(y)) = x f(y).
+\]
+
+Ef til er $a$ þannig að $f(a) \neq 0$, þá má setja $y = a$:
+\[
+f(x) f(f(a)) = x f(a).
+\]
+Ef $f(f(a)) = 0$, þá væri vinstri hlið jöfn núlli fyrir öll $x$, en hægri hliðin $x f(a)$ væri aðeins núll þegar $x = 0$,  
+sem gefur mótsögn. Því hlýtur að gilda $f(f(a)) \neq 0$, og við getum deilt með því:
+\[
+f(x) = \frac{f(a)}{f(f(a))} \, x.
+\]
+Þannig fæst að $f(x) = c x$ fyrir einhvern fastann $c$.
+
+Setjum $f(x) = c x$ inn í upphaflegu jöfnuna:
+\[
+c x \qty(x + c^2 y) = c x^2 + x c y,
+\]
+sem einfaldast í $c^3 = c$.
+
+Því fæst
+\[
+c \in \{0, 1, -1\}.
+\]
+
+Almennar lausnir eru því
+\[
+f(x) = 0, \quad f(x) = x, \quad f(x) = -x.
+\]
+

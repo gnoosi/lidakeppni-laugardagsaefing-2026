@@ -1,0 +1,57 @@
+%Filippseyjar 02.12.2023 p4
+%geo 5
+Látum $ABC$ vera rétthyrndan þríhyrning með langhlið $CA$. Gefið er að $AB=12$ og $BC=5$. Ferningur er innritaður í þríhyrninginn á tvo mismunandi vegu eins og sést á myndinni.
+\begin{center}
+\begin{tikzpicture}[scale=0.4,
+    dot/.style={circle, fill=black!80, draw=black, line width=0.3pt, inner sep=1pt},
+    lbl/.style={font=\small, inner sep=2pt}]
+  % --- data: legs |AB|=12, |BC|=5, hypotenuse 13 ---
+  \pgfmathsetmacro{\s}{60/17}       % side of square DEFB (corner at B)
+  \pgfmathsetmacro{\t}{780/229}     % side of square PQRS (side on CA)
+  \pgfmathsetmacro{\lr}{5*\t/12}    % |CR|
+  \pgfmathsetmacro{\lq}{\lr+\t}     % |CQ|
+
+  % --- left figure ---
+  \begin{scope}
+    \coordinate (A) at (0,12);
+    \coordinate (B) at (0,0);
+    \coordinate (C) at (5,0);
+    \coordinate (D) at (0,\s);
+    \coordinate (E) at (\s,\s);
+    \coordinate (F) at (\s,0);
+
+    \draw[black!70, thick] (A) -- (B) -- (C) -- cycle;
+    \draw[black!45, thick] (D) -- (E) -- (F);
+
+    \node[dot] at (A) {}; \node[lbl, above] at (A) {$A$};
+    \node[dot] at (B) {}; \node[lbl, below left] at (B) {$B$};
+    \node[dot] at (C) {}; \node[lbl, below right] at (C) {$C$};
+    \node[dot] at (D) {}; \node[lbl, left] at (D) {$D$};
+    \node[dot] at (E) {}; \node[lbl, right] at (E) {$E$};
+    \node[dot] at (F) {}; \node[lbl, below] at (F) {$F$};
+  \end{scope}
+
+  % --- right figure ---
+  \begin{scope}[xshift=9cm]
+    \coordinate (A) at (0,12);
+    \coordinate (B) at (0,0);
+    \coordinate (C) at (5,0);
+    \coordinate (R) at ({5-5*\lr/13},{12*\lr/13});
+    \coordinate (Q) at ({5-5*\lq/13},{12*\lq/13});
+    \coordinate (S) at ($(R)+({-12*\t/13},{-5*\t/13})$);
+    \coordinate (P) at ($(Q)+({-12*\t/13},{-5*\t/13})$);
+
+    \draw[black!70, thick] (A) -- (B) -- (C) -- cycle;
+    \draw[black!45, thick] (Q) -- (P) -- (S) -- (R);
+
+    \node[dot] at (A) {}; \node[lbl, above] at (A) {$A$};
+    \node[dot] at (B) {}; \node[lbl, below left] at (B) {$B$};
+    \node[dot] at (C) {}; \node[lbl, below right] at (C) {$C$};
+    \node[dot] at (P) {}; \node[lbl, left] at (P) {$P$};
+    \node[dot] at (Q) {}; \node[lbl, above right] at (Q) {$Q$};
+    \node[dot] at (R) {}; \node[lbl, right] at (R) {$R$};
+    \node[dot] at (S) {}; \node[lbl, below] at (S) {$S$};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+Hlutfall lengdar $PQ$ og lengdar $DE$ má rita sem $\frac{m}{n}$ þar sem $m$ og $n$ eru ósamþátta jákvæðar heiltölur. Hvað er $m+n$?

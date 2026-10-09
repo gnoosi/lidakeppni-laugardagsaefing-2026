@@ -1,0 +1,53 @@
+Látum $A$ vera heiltölu stærri en $10$ með alla tölustafi jafna, þ.e.\ 
+\[
+A = \underbrace{aa\ldots a}_{n\ \text{tölustafir}}, \qquad a\in\{1,2,\ldots,9\},\ n\ge 2.
+\]
+Við ætlum að sýna að slík tala getur aldrei verið ferningsveldi.
+
+Byrjum á því að skoða $A$ samleifa við $4$.  
+Þar sem aðeins síðustu tveir tölustafir skipta máli, þurfum við einungis að líta á tvíliðina $aa$.  
+Við höfum
+\[
+10a + a \equiv 3a \pmod{4}.
+\]
+Ferningsleifar $\mod 4$ eru aðeins $0$ og $1$, þannig að við verðum að hafa 
+$3a \equiv 0$ eða $1 \pmod{4}$.  
+Ef við prófum allar tölur $a = 1,2,\ldots,9$, sjáum við að aðeins $a = 3,4,7,8$ geta gefið leifar $0$ eða $1$.  
+
+Næst lítum við á $A$ samleifa við $5$.  
+Hér ræður einungis síðasti tölustafurinn niðurstöðunni.  
+Við vitum að ferningsleifar $\mod 5$ eru $0, 1$ og $4$.  
+Ef $a=3$ fæst $A\equiv 3\pmod 5$, ef $a=7$ fæst $A\equiv 2\pmod 5$, ef $a=8$ fæst $A\equiv 3\pmod 5$, en ef $a=4$ fæst $A\equiv 4\pmod 5$.  
+Aðeins síðasta tilfellið samræmist ferningsleif.  
+Því er eini möguleikinn sem eftir stendur sá að
+\[
+A = \underbrace{44\ldots 4}_{n\ \text{tölustafir}} \qquad (n\ge 2).
+\]
+
+Til að útiloka þennan möguleika skoðum við nú $A$ samleifa við $16$.  
+Ferningsleifar $\mod 16$ eru $\{0,1,4,9\}$.  
+Skoðum hversu stór $A$ er mod $16$ með því að skoða nokkur veldi af $10$: 
+\[
+10\equiv 10,\quad 10^2\equiv 4,\quad 10^3\equiv 8,\quad 10^k\equiv 0 \ (k\ge 4) \pmod{16}.
+\]
+Þá getum við skrifað talnana $44\ldots4$ sem
+\[
+A = 4(1 + 10 + 10^2 + \ldots + 10^{n-1}).
+\]
+Ef við reiknum þessa summu $\mod 16$ fáum við:
+\[
+1 + 10 \equiv 11,\quad 1 + 10 + 4 \equiv 15,\quad
+1 + 10 + 4 + 8 \equiv 23 \equiv 7 \pmod{16}.
+\]
+Margföldum nú með $4$:
+\[
+4\cdot 11 \equiv 12,\quad 4\cdot 15 \equiv 12,\quad 4\cdot 7 \equiv 12 \pmod{16}.
+\]
+Þannig fæst að fyrir öll $n\ge 2$ gildir
+\[
+A \equiv 12 \pmod{16}.
+\]
+En $12$ er ekki ferningsleif $\mod 16$, þar sem einu ferningsleifarnar eru $0,1,4$ og $9$.  
+Þetta gefur mótsögn við að slík tala sé til.
+
+Þar með er sýnt að engin tala $A>10$ með alla tölustafi eins getur verið ferningstala.

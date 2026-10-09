@@ -1,0 +1,18 @@
+% DRÖG — stutt lausn
+Látum $n = 1000q + r$ með $0 \le r \le 999$ og $q \ge 0$, og
+látum $s(r)$ tákna summu stafa $r$.
+Skilyrðið segir
+\[
+1000q + r + s(r) = 2032.
+\]
+Ef $q=1$ fæst $r + s(r) = 1032$, sem er ómögulegt
+($r + s(r) \le 999 + 27 = 1026$).
+
+Ef $q=2$ fæst $r + s(r) = 32$ og þá getur $r$ ekki verið þriggja eða eins stafa tala. Prófun á gildum $r = 19$ og $r = 30$ sýnir að $r \in \qty{20, ..., 29}$.
+
+Eftir fleiri prófanir er ljóst að eini möguleikinn er $r = 25$,
+því $25 + 2 + 5 = 32$.
+Því fæst svarið
+\[
+n = 1000 \cdot 2 + 25 = 2025.
+\]

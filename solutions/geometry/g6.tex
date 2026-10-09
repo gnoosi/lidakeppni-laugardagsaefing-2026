@@ -1,0 +1,43 @@
+Gerum ráð fyrir að til sé punktur $P$ sem liggur innan allra sex hringjanna.
+Látum miðjur þeirra vera $O_1, O_2, \dots, O_6$ og geisla $r_1, r_2, \dots, r_6$.
+Skilyrðið að engin hringur inniheldur miðju annars þýðir að
+\[
+O_iO_j > \max(r_i, r_j)
+\quad\text{fyrir öll } i\neq j,
+\]
+þannig að hver miðja liggur utan hinna hringjanna.
+
+Þar sem $P$ er innan allra hringjanna gildir
+\[
+O_iP<r_i \quad \text{fyrir öll } i.
+\]
+Línurnar $O_1P, O_2P, \dots, O_6P$ geisla út frá sama punkti $P$.
+Látum $\theta_i = \angle O_i P O_{i+1}$.
+
+Í þríhyrningnum $O_i P O_{i+1}$ höfum við:
+\[
+O_iO_{i+1}\;>\;\max\{r_i,r_{i+1}\},
+\quad
+O_iP<r_i,\quad \text{og} \quad O_{i+1}P<r_{i+1}
+\]
+Því fæst
+\[
+O_iO_{i+1} \;>\; \max\{\,O_iP,\;O_{i+1}P\,\},
+\]
+svo $O_iO_{i+1}$ er stærsta hlið þríhyrningsins $O_i P O_{i+1}$.
+Þar með er hornið við $P$ stærst: $\theta_i>\angle O_{i+1}O_iP$ og $\theta_i>\angle PO_{i+1}O_i$.
+Setjum $\alpha_i=\angle O_{i+1}O_iP$ og $\beta_i=\angle PO_{i+1}O_i$.
+Þá gildir $\alpha_i+\beta_i=180^\circ-\theta_i$ og $\theta_i>\alpha_i,\theta_i>\beta_i$, svo
+\[
+\theta_i \;>\; \frac{\alpha_i+\beta_i}{2} \;=\; \frac{180^\circ-\theta_i}{2}
+\;\;\Rightarrow\;\; 3\theta_i>180^\circ
+\;\;\Rightarrow\;\; \theta_i>60^\circ.
+\]
+
+Þar af leiðir fyrir öll sex pörin:
+\[
+\theta_1+\theta_2+\cdots+\theta_6 \;>\; 6\cdot 60^\circ \;=\; 360^\circ,
+\]
+en horn um sama punkt í planinu getur í mesta lagi numið $360^\circ$ sem gefur mótsögn.
+
+Því er ekki til punktur $P$ sem liggur inni í öllum sex hringjunum.

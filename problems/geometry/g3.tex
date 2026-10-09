@@ -1,0 +1,37 @@
+%geo 3
+Strikin $AEB$ og $CDE$ snerta báða hringina eins og myndin sýnir. Reiknið $CD$ þegar $AE=2EB$ og $AB=6$.
+\begin{center}
+\begin{tikzpicture}[
+    dot/.style={circle, fill=black!80, draw=black, line width=0.3pt, inner sep=1pt},
+    lbl/.style={font=\small, inner sep=2pt}]
+  % --- data: centres and radii (change these freely) ---
+  \def\xa{0}    \def\ya{0}     \def\ra{1.30}  % small circle
+  \def\xb{3.55} \def\yb{-0.28} \def\rb{2.08}  % large circle
+
+  % --- tangent directions ---
+  \pgfmathsetmacro{\dist}{veclen(\xb-\xa,\yb-\ya)}
+  \pgfmathsetmacro{\ang}{atan2(\yb-\ya,\xb-\xa)}
+  \pgfmathsetmacro{\tout}{\ang+acos((\ra-\rb)/\dist)} % external tangent
+  \pgfmathsetmacro{\tin}{\ang-acos((\ra+\rb)/\dist)}  % internal tangent
+
+  \coordinate (O1) at (\xa,\ya);
+  \coordinate (O2) at (\xb,\yb);
+  \coordinate (A) at ($(O1)+(\tout:\ra)$);
+  \coordinate (B) at ($(O2)+(\tout:\rb)$);
+  \coordinate (C) at ($(O1)+(\tin:\ra)$);
+  \coordinate (D) at ($(O2)+(\tin+180:\rb)$);
+  \coordinate (E) at (intersection of A--B and C--D);
+
+  % --- drawing ---
+  \draw[black!45] (O1) circle (\ra);
+  \draw[black!45] (O2) circle (\rb);
+  \draw[black!70, thick] (A) -- (B);
+  \draw[black!70, thick] (C) -- (E);
+
+  \node[dot] at (A) {}; \node[lbl, above] at (A) {$A$};
+  \node[dot] at (B) {}; \node[lbl, above] at (B) {$B$};
+  \node[dot] at (E) {}; \node[lbl, above] at (E) {$E$};
+  \node[dot] at (D) {}; \node[lbl, left]  at (D) {$D$};
+  \node[dot] at (C) {}; \node[lbl, left]  at (C) {$C$};
+\end{tikzpicture}
+\end{center}

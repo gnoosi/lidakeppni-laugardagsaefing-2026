@@ -1,0 +1,45 @@
+%Mohr 2014
+%geo 4
+Punktarnir $C$ og $D$ liggja á hálflínu frá $M$ sem er miðpunktur striks $AB$, þannig að $|AC|=|BD|$ sýnið að hornin $u=\angle ACM$ og $v=\angle BDM$ eru jafnstór.
+\begin{center}
+\begin{tikzpicture}[
+    dot/.style={circle, fill=black!80, draw=black, line width=0.3pt, inner sep=1pt},
+    lbl/.style={font=\small, inner sep=2pt}]
+  % --- data: half-length of AB, direction of ray, |MC| ---
+  \def\a{2.5} \def\th{80} \def\s{1.3}
+  % |AC|=|BD|  <=>  |MD|-|MC| = 2a cos(th)
+  \pgfmathsetmacro{\t}{\s+2*\a*cos(\th)}
+
+  \coordinate (M) at (0,0);
+  \coordinate (A) at (-\a,0);
+  \coordinate (B) at (\a,0);
+  \coordinate (C) at (\th:\s);
+  \coordinate (D) at (\th:\t);
+
+  % --- angles for the arcs ---
+  \pgfmathsetmacro{\uA}{atan2(-\s*sin(\th),-\a-\s*cos(\th))+360}
+  \pgfmathsetmacro{\vB}{atan2(-\t*sin(\th),\a-\t*cos(\th))+360}
+
+  % --- drawing ---
+  \draw[black!70, thick] (A) -- (B);
+  \draw[black!70, thick] (M) -- (\th:\t+0.6);
+  \draw[black!70, thick] (A) -- (C);
+  \draw[black!70, thick] (B) -- (D);
+
+  \path (A) -- (M) node[midway, sloped, inner sep=0] {\scriptsize$|$};
+  \path (M) -- (B) node[midway, sloped, inner sep=0] {\scriptsize$|$};
+  \path (A) -- (C) node[midway, sloped, inner sep=0] {\scriptsize$\|$};
+  \path (B) -- (D) node[midway, sloped, inner sep=0] {\scriptsize$\|$};
+
+  \draw ($(C)+(\uA:0.3)$) arc[start angle=\uA, end angle=\th+180, radius=0.3];
+  \node[lbl] at ($(C)+({(\uA+\th+180)/2}:0.5)$) {$u$};
+  \draw ($(D)+(\th+180:0.3)$) arc[start angle=\th+180, end angle=\vB, radius=0.3];
+  \node[lbl] at ($(D)+({(\vB+\th+180)/2}:0.5)$) {$v$};
+
+  \node[dot] at (A) {}; \node[lbl, left]  at (A) {$A$};
+  \node[dot] at (B) {}; \node[lbl, right] at (B) {$B$};
+  \node[dot] at (M) {}; \node[lbl, below] at (M) {$M$};
+  \node[dot] at (C) {}; \node[lbl, above left] at (C) {$C$};
+  \node[dot] at (D) {}; \node[lbl, right] at (D) {$D$};
+\end{tikzpicture}
+\end{center}

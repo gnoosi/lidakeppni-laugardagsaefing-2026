@@ -1,0 +1,63 @@
+% Encodings, page setup, paragraph formatting, font
+\usepackage[top=0.9in, bottom=1in, left=1.5in, right=1.5in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[icelandic]{babel}
+\usepackage[T1]{fontenc}
+%\usepackage[sc]{mathpazo}
+\usepackage[parfill]{parskip}
+\usepackage{physics}
+% Tables and lists
+\usepackage{booktabs,tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+% Math
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+% Graphics
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+% Hyperlinks and related
+\usepackage[bookmarks=true,colorlinks=true,pdfauthor={Hrafnkell Hvanndal Halldórsson, Magnús Thor Holloway},linkcolor=blue,urlcolor=blue]{hyperref}
+%Listings
+%\usepackage{listings}
+%\usepackage{listingsutf8}
+%\usepackage{xcolor}
+% Meta information
+\author{Hrafnkell Hvanndal Halldórsson\\Magnús Thor Holloway}
+% Hyphenation
+\hyphenpenalty=5000
+% Page and section numbering
+\setcounter{secnumdepth}{-1} 
+\pagenumbering{gobble}
+\usepackage{bm}
+
+\renewcommand{\d}{\mbox{${\partial}$}}
+\newcommand{\N}{\mbox{${\mathbb N}$}}
+\newcommand{\Z}{\mbox{${\mathbb Z}$}}
+\newcommand{\Q}{\mbox{${\mathbb Q}$}}
+\newcommand{\R}{\mbox{${\mathbb R}$}}
+\newcommand{\C}{\mbox{${\mathbb C}$}}
+\newcommand{\K}{\mbox{${\mathbb K}$}}
+\newcommand{\Log}{\mbox{${\text{Log}}$}}
+\DeclareMathOperator{\my}{my}
+\DeclareMathOperator{\I}{I}
+
+
+% ----- Problem numbering across the whole document -----
+\newcounter{problem_number}
+\newcommand{\Problem}{%
+  \stepcounter{problem_number}%
+  \subsection*{Dæmi \arabic{problem_number}}%
+  \vspace{0em}%
+}
+\newcommand{\Lausn}{
+    \subsubsection*{Lausn}
+}
+
+% Pair macro: prints Dæmi N, then problem, then Lausn + solution
+\newcommand{\ProblemWithSolution}[2]{%
+  \Problem
+  \input{#1}
+  \Lausn
+  \input{#2}
+}

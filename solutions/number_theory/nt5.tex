@@ -1,0 +1,90 @@
+% NT-4 — Lausn (DRÖG)
+Ef $x = 1$, þá fæst $y^{1} = 1$ og því $y = 1$.  
+Þannig er $(x,y) = (1,1)$ lausn.  
+Héðan í frá gerum við ráð fyrir $x, y > 1$.
+
+Til að halda áfram kynnum við táknmálið $v_p(n)$ sem stendur fyrir stærsta heiltölu $k$ þannig að $p^k$ deilir $n$.  
+Til dæmis er $v_2(12) = 2$ því $12 = 2^2 \cdot 3$, og $v_3(12) = 1$.  
+Þetta tákn hjálpar okkur að bera saman hvernig mismunandi frumtölur skipta tölum.
+
+Beitum nú $v_p$ á báðar hliðar jöfnunnar $y^{x^2} = x^{y+2}$ og fáum
+\[
+x^2 v_p(y) = (y + 2) v_p(x)
+\]
+fyrir sérhverja frumtölu $p$.  
+Þar af leiðir
+\[
+\frac{v_p(x)}{v_p(y)} = \frac{x^2}{y + 2} = \frac{u}{v}
+\]
+fyrir einhverjar jákvæðar heiltölur $u, v$ með $\gcd(u,v) = 1$.
+
+Þetta þýðir að fyrir hverja frumtölu $p$ er til heiltala $k_p \ge 0$ þannig að  
+$v_p(x) = k_p u$ og $v_p(y) = k_p v$.  
+Skilgreinum
+\[
+a = \prod_p p^{k_p} > 1.
+\]
+Þá gildir $x = a^u$ og $y = a^v$ með $\gcd(u,v) = 1$.
+
+Setjum þetta inn í upphaflegu jöfnuna:
+\[
+(a^v)^{a^{2u}} = (a^u)^{a^v + 2},
+\]
+sem einfaldast í
+\[
+v\,a^{2u} = u\,(a^v + 2). \tag{*}
+\]
+
+Gerum nú ráð fyrir að einhver oddatala frumtala $p$ deili $a$.  
+Þá er $a \equiv 0 \pmod p$, og ef við beitum $v_p$ á báðar hliðar (*) fæst
+\[
+v_p(v) + 2u\,v_p(a) = v_p(u) + v_p(a^v + 2).
+\]
+Þar sem $a^v + 2 \equiv 2 \pmod p$ er $v_p(a^v + 2) = 0$.  
+Þannig fæst
+\[
+v_p(v) + 2u\,v_p(a) = v_p(u).
+\]
+En þetta getur ekki gerst nema $v_p(a) = 0$, því almennt er $v_p(u)$ alltaf fremur lítið,  
+þ.e. $v_p(u) \le u-1$, og getur aldrei orðið jafnt og $2u\,v_p(a)$ nema ef $v_p(a) = 0$.  
+Þar með getur engin odda frumtala deilt $a$, og við fáum $a = 2^n$ með $n \ge 1$.
+
+Setjum $a = 2^n$ inn í (*):
+\[
+v\,2^{2un} = u\,(2^{vn} + 2)
+\quad\Longleftrightarrow\quad
+v\,2^{2un - 1} = u\,(2^{vn - 1} + 1). \tag{**}
+\]
+
+Talan $(2^{vn - 1} + 1)$ er alltaf oddatala.  
+Þar með er hægri hlið (**) margfeldi af oddatölu, en vinstri hliðin inniheldur veldi af $2$.  
+Til að jafnan haldi þurfa allir tvíþættir að koma úr $u$, þannig að $u$ sé slétt tala.  
+Ef $v$ væri líka slétt myndi $\gcd(u,v) > 1$, svo $v$ verður að vera oddatala.
+
+Þar sem $\gcd(u,v) = 1$ og $u$ er slétt, hlýtur oddatala $(2^{vn - 1} + 1)$ að deila $v$:
+\[
+2^{vn - 1} + 1 \mid v. \tag{†}
+\]
+
+Ef $nv > 1$ þá er $2^{vn - 1} + 1 \ge 3$, og úr (†) leiðir
+\[
+2^{vn - 1} + 1 \le v \ \Rightarrow\ 2^{vn - 1} \le v - 1 \le nv - 1,
+\]
+sem er ómögulegt því $2^t > t$ fyrir öll $t \ge 1$.  
+Því verður $nv = 1$, þannig að $n = v = 1$.
+
+Setjum $n = v = 1$ í (**) og fáum
+\[
+2^{2u - 1} = 2u,
+\]
+sem jafngildir
+\[
+2^{2u - 2} = u.
+\]
+Vinstri hlið vex mun hraðar en hægri, þannig að eina lausnin er $u = 1$.
+
+Þá er $a = 2$, $x = a^u = 2$ og $y = a^v = 2$ þannig allar lausnir eru
+
+\[
+(x,y) = (1,1)\ \text{og}\ (2,2).
+\]
