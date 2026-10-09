@@ -1,11 +1,43 @@
-Vegna þess að \(AB = AC\) er línan \(AD\) samhverfuás þríhyrningsins og þar með einnig miðlína og hæð á grunninn \(BC\).  
-Því er \(D\) miðpunktur \(BC\) og \(BD = DC\).
+Ath. að $\angle DAC=\angle CBA$ og $\angle ADC=\angle DCB$. 
+\newline Ath. að $2\angle DAE+\angle ADE=180^\circ$ og $\angle ADE+\angle DAB=180^\circ$
+\newline Þá er $\angle BAE=\angle DAE$. Þá er $\triangle DAE\sim\triangle EAB$. 
+\newline Fáum: $\dfrac{AB}{36}=\dfrac{36}{81}$ þ.e. $AB=16$
 
-Skoðum rétthyrnda þríhyrninginn \(ABD\): Hér er \(AB = 10\) (langhlið) og \(AD = 8\). Þá fæst
-\[
-BD = \sqrt{AB^{2} - AD^{2}} = \sqrt{10^{2} - 8^{2}} = \sqrt{100 - 64} = \sqrt{36} = 6.
-\]
-Þar sem \(D\) er miðpunktur \(BC\), þá er
-\[
-BC = 2 \cdot BD = 2 \cdot 6 = 12.
-\]
+\begin{center}
+\begin{tikzpicture}[scale=0.045,
+    dot/.style={circle, fill=black!80, draw=black, line width=0.3pt, inner sep=1pt},
+    lbl/.style={font=\small, inner sep=2pt}]
+  % --- data: |DM|=|MC|=|AD|=|BC|=81, |AM|=|BM|=36 ---
+  % A=(x,y) with |A-M|=36, |A-D|=81  =>  x=-8, y=sqrt(36^2-8^2)
+  \pgfmathsetmacro{\h}{sqrt(36^2-8^2)}
+
+  \coordinate (D) at (-81,0);
+  \coordinate (M) at (0,0);
+  \coordinate (C) at (81,0);
+  \coordinate (A) at (-8,\h);
+  \coordinate (B) at (8,\h);
+
+  % --- drawing ---
+  \draw[black!70, thick] (D) -- (C) -- (B) -- (A) -- cycle;
+  \draw[black!70, thick] (A) -- (M) -- (B);
+
+  \path (D) -- (A) node[lbl, midway, above left] {$81$};
+  \path (B) -- (C) node[lbl, midway, above right] {$81$};
+  \path (D) -- (M) node[lbl, midway, below] {$81$};
+  \path (M) -- (C) node[lbl, midway, below] {$81$};
+  \path (A) -- (M) node[lbl, midway, left] {$36$};
+  \path (B) -- (M) node[lbl, midway, right] {$36$};
+  \path (A) -- (B) node[lbl, midway, above] {$16$};
+
+  \node[dot] at (A) {}; \node[lbl, above left]  at (A) {$A$};
+  \node[dot] at (B) {}; \node[lbl, above right] at (B) {$B$};
+  \node[dot] at (C) {}; \node[lbl, right] at (C) {$C$};
+  \node[dot] at (D) {}; \node[lbl, left]  at (D) {$D$};
+  \node[dot] at (M) {}; \node[lbl, below]  at (M) {$E$};
+
+  \pic [draw, angle radius=5pt, double] {angle = D--A--M};
+  \pic [draw, angle radius=5pt, double] {angle = A--M--D};
+  \pic [draw, angle radius=7pt, double] {angle = M--A--B};
+  
+\end{tikzpicture}
+\end{center}
