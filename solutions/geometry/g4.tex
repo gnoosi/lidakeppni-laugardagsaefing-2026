@@ -1,37 +1,51 @@
+Setjum $C'$ sem speglun á $C$ um $M$. Ath. að $B$ er $A$ speglað um $M$, þannig að $\triangle ACM$ speglað um $M$ er $\triangle BC'M$. Þá er $\triangle DBC'$ jafnarma þríhyrningur þ.a. $u=v$.
 
-Athugum að strikin $O_1A$, $AO_2$, $BO_1$ og $BO_2$ eru öll geislar, svo
-allar hliðar $O_1A,AO_2,BO_1,BO_2$ eru jafnar $r$. Ferhyrningurinn
-$O_1AO_2B$ er því samsíðungur.
+\begin{center}
+\begin{tikzpicture}[
+    dot/.style={circle, fill=black!80, draw=black, line width=0.3pt, inner sep=1pt},
+    lbl/.style={font=\small, inner sep=2pt}]
+  % --- data: half-length of AB, direction of ray, |MC| ---
+  \def\a{2.5} \def\th{80} \def\s{1.3}
+  % |AC|=|BD|  <=>  |MD|-|MC| = 2a cos(th)
+  \pgfmathsetmacro{\t}{\s+2*\a*cos(\th)}
 
-Látum $\theta=\angle AO_1B = \angle AO_2B$). Þá má skrifa
-flatarmálið sem summa tveggja eins þríhyrninga
-\[
-S=[O_1AB]+[O_2AB]
-  = \tfrac12 r^2\sin\theta+\tfrac12 r^2\sin\theta
-  = r^2\sin\theta.
-\]
-Þetta hámarkast þegar $\theta=90^\circ$, því $\sin\theta\le 1$.
-Þá er $S_{\max}=r^2$ og samsíðungurinn verður rétthyrndur; þar sem allar
-hliðar eru $r$ er hann í raun ferníngur.
+  \coordinate (M) at (0,0);
+  \coordinate (A) at (-\a,0);
+  \coordinate (B) at (\a,0);
+  \coordinate (C) at (\th:\s);
+  \coordinate (C') at (\th:-\s);
+  \coordinate (D) at (\th:\t);
 
-\textit{Önnur lausn (án hornafalla).}
-Látum $O_1O_2=2d$ og $M$ vera miðpunkt strengsins $AB$. Þá er $AB$
-hornrétt á $O_1O_2$ og $O_1M=O_2M=d$. Í rétthyrnda þríhyrningnum
-$O_1MA$ fæst
-\[
-AM=\sqrt{r^2-d^2}.
-\]
-Hæð samsíðungsins $O_1AO_2B$ að grunninum $O_1O_2$ er $AM$, svo
-\[
-S=O_1O_2\cdot AM
-  = 2d\sqrt{r^2-d^2}.
-\]
-Setjum $x=d^2$. Þá er
-\[
-S^2=4d^2(r^2-d^2)=4r^2x-4x^2
-= -4\!\left(x-\frac{r^2}{2}\right)^2+r^4 \le r^4.
-\]
-Því er $S\le r^2$ og hámarkið $S_{\max}=r^2$ næst þegar
-$x=\tfrac{r^2}{2}$, þ.e. $d=\tfrac{r}{\sqrt2}$ (svo $O_1O_2=\sqrt2\,r$).
-Í því tilfelli eru horn samsíðungsins rétthyrnd og allir leggir hans eru
-$r$, þannig að hann er ferníngur með flatarmálið $r^2$.
+  % --- angles for the arcs ---
+  \pgfmathsetmacro{\uA}{atan2(-\s*sin(\th),-\a-\s*cos(\th))+360}
+  \pgfmathsetmacro{\vB}{atan2(-\t*sin(\th),\a-\t*cos(\th))+360}
+
+  % --- drawing ---
+  \draw[black!70, thick] (A) -- (B);
+  \draw[black!70, thick] (M) -- (\th:\t+0.6);
+  \draw[black!70, thick] (A) -- (C);
+  \draw[black!70, thick] (B) -- (D);
+  \draw[black!40, thick] (M) -- (\th:-\s-0.4);
+  \draw[black!40, thick] (C') -- (B);
+
+  \path (A) -- (M) node[midway, sloped, inner sep=0] {\scriptsize$|$};
+  \path (M) -- (B) node[midway, sloped, inner sep=0] {\scriptsize$|$};
+  \path (A) -- (C) node[midway, sloped, inner sep=0] {\scriptsize$\|$};
+  \path (B) -- (D) node[midway, sloped, inner sep=0] {\scriptsize$\|$};
+  \path (C') -- (B) node[midway, sloped, inner sep=0] {\scriptsize$\|$};
+
+  \draw ($(C)+(\uA:0.3)$) arc[start angle=\uA, end angle=\th+180, radius=0.3];
+  \node[lbl] at ($(C)+({(\uA+\th+180)/2}:0.5)$) {$u$};
+  \draw ($(D)+(\th+180:0.3)$) arc[start angle=\th+180, end angle=\vB, radius=0.3];
+  \node[lbl] at ($(D)+({(\vB+\th+180)/2}:0.5)$) {$v$};
+  \pic [draw, angle radius=0.3cm] {angle = B--C'--M};
+  \node[lbl] at ($(C')+({(\uA+\th)/2-90}:0.5)$) {$u$};
+
+  \node[dot] at (A) {}; \node[lbl, left]  at (A) {$A$};
+  \node[dot] at (B) {}; \node[lbl, right] at (B) {$B$};
+  \node[dot] at (M) {}; \node[lbl, below] at (M) {$M$};
+  \node[dot] at (C) {}; \node[lbl, above left] at (C) {$C$};
+  \node[dot] at (D) {}; \node[lbl, right] at (D) {$D$};
+  \node[dot] at (C') {}; \node[lbl, above left] at (C') {$C'$};
+\end{tikzpicture}
+\end{center}
