@@ -1,43 +1,62 @@
-Gerum ráð fyrir að til sé punktur $P$ sem liggur innan allra sex hringjanna.
-Látum miðjur þeirra vera $O_1, O_2, \dots, O_6$ og geisla $r_1, r_2, \dots, r_6$.
-Skilyrðið að engin hringur inniheldur miðju annars þýðir að
-\[
-O_iO_j > \max(r_i, r_j)
-\quad\text{fyrir öll } i\neq j,
-\]
-þannig að hver miðja liggur utan hinna hringjanna.
+Ath. að $\angle EAC=\angle CBD$ Þar sem þau eru ferilhorn sem spanna sama boga. Höfum af reglu Ceva að $AC$, $BM$, og $FE$ skerast öll ís sama punkti e.o.a.e. $\frac{AB}{AF}\frac{FM}{MC}\frac{CE}{BE}=1$. Fáum:
+\begin{align*}
+MF=MC & \Leftrightarrow \frac{AB}{AF}\frac{CE}{BE}=1 \\
+ & \Leftrightarrow AE || FC \\
+ & \Leftrightarrow \angle FCA =\angle CAE \\
+ & \Leftrightarrow \angle MCD =\angle CBD \\
+ & \Leftrightarrow \triangle BMC \sim \triangle CMD \\
+ & \Leftrightarrow \frac{MC}{MD}=\frac{MB}{MC} \\
+ & \Leftrightarrow MC^2=MB\cdot MD
+\end{align*}
+\begin{center}
+\begin{tikzpicture}[line cap=round, >=stealth, scale=0.9]
+  % þríhyrningur ABC
+  \coordinate (A) at (0,0);
+  \coordinate (C) at (8,0);
+  \coordinate (B) at (-1,2.5);
 
-Þar sem $P$ er innan allra hringjanna gildir
-\[
-O_iP<r_i \quad \text{fyrir öll } i.
-\]
-Línurnar $O_1P, O_2P, \dots, O_6P$ geisla út frá sama punkti $P$.
-Látum $\theta_i = \angle O_i P O_{i+1}$.
+  % D á AC
+  \coordinate (D) at (2.5,0);
 
-Í þríhyrningnum $O_i P O_{i+1}$ höfum við:
-\[
-O_iO_{i+1}\;>\;\max\{r_i,r_{i+1}\},
-\quad
-O_iP<r_i,\quad \text{og} \quad O_{i+1}P<r_{i+1}
-\]
-Því fæst
-\[
-O_iO_{i+1} \;>\; \max\{\,O_iP,\;O_{i+1}P\,\},
-\]
-svo $O_iO_{i+1}$ er stærsta hlið þríhyrningsins $O_i P O_{i+1}$.
-Þar með er hornið við $P$ stærst: $\theta_i>\angle O_{i+1}O_iP$ og $\theta_i>\angle PO_{i+1}O_i$.
-Setjum $\alpha_i=\angle O_{i+1}O_iP$ og $\beta_i=\angle PO_{i+1}O_i$.
-Þá gildir $\alpha_i+\beta_i=180^\circ-\theta_i$ og $\theta_i>\alpha_i,\theta_i>\beta_i$, svo
-\[
-\theta_i \;>\; \frac{\alpha_i+\beta_i}{2} \;=\; \frac{180^\circ-\theta_i}{2}
-\;\;\Rightarrow\;\; 3\theta_i>180^\circ
-\;\;\Rightarrow\;\; \theta_i>60^\circ.
-\]
+  % hringur um A, B, D (miðja og geisli reiknuð)
+  \def\cx{1.25}\def\cy{1.95}\def\R{2.3162}
 
-Þar af leiðir fyrir öll sex pörin:
-\[
-\theta_1+\theta_2+\cdots+\theta_6 \;>\; 6\cdot 60^\circ \;=\; 360^\circ,
-\]
-en horn um sama punkt í planinu getur í mesta lagi numið $360^\circ$ sem gefur mótsögn.
+  % E = seinni skurðpunktur hrings og BC: CE*CB = CD*CA
+  \coordinate (E) at ($(C)!{44/87.25}!(B)$);
 
-Því er ekki til punktur $P$ sem liggur inni í öllum sex hringjunum.
+  % F = AB ∩ DE, M = BD ∩ CF
+  \coordinate (F) at (intersection of A--B and D--E);
+  \coordinate (M) at (intersection of B--D and C--F);
+
+  % hringur
+  \draw[dashed] (\cx,\cy) circle (\R);
+
+  % heilar línur
+  \draw (B) -- (C);
+  \draw (A) -- (B);
+  \draw (A) -- (C);
+
+  % punktalínur
+  \draw[dotted] (A) -- (F);      % AB framlengd
+  \draw[dotted] (E) -- (F);      % DE framlengd
+  \draw[dotted] (B) -- (M);      % BD framlengd
+  \draw[dotted] (C) -- (F);      % CF
+  \draw[dotted] (A) -- (E);
+
+  \pic [draw, angle radius=10pt, double] {angle = D--B--E};
+  \pic [draw, angle radius=10pt, double] {angle = D--A--E};
+  \pic [draw, angle radius=10pt, double] {angle = A--C--F};
+
+  % punktar
+  \foreach \p in {A,B,C,D,E,F,M} \fill (\p) circle (1.5pt);
+
+  % nöfn
+  \node[above left]  at (B) {$B$};
+  \node[below left]  at (A) {$A$};
+  \node[below]       at (D) {$D$};
+  \node[above right] at (E) {$E$};
+  \node[below right] at (C) {$C$};
+  \node[below]       at (F) {$F$};
+  \node[below right] at (M) {$M$};
+\end{tikzpicture}
+\end{center}
