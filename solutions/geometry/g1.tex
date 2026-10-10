@@ -1,39 +1,34 @@
-Látum hliðarnar við hornið vera $x$ og $y$ þannig að $x \leq y$ og langhliðina $z$.
-Þá gildir
-\[
-\begin{cases}
-x + y + z = 60,\\[3pt]
-xy = 12z,\\[3pt]
-x^2 + y^2 = z^2.
-\end{cases}
-\]
+Fáum að skyggða svæðið má skipta í tvo hluta, annar þeira (dekkri) er $\frac34$ af hring með geisla einn og hinn hlutin er ferningur með hliðarlengd 1 með fjórðung af hringi með geisla 1 fjarlægðan. Fáum að flatarmálið er $F=\frac34\pi+(1^2-\frac14\pi)=1-\frac\pi2$
 
-Bætum $2xy = 24z$ við jöfnu 3 og fáum
+\begin{center}
+\begin{tikzpicture}[scale=1.8,
+    dot/.style={circle, fill=black!80, draw=black, line width=0.3pt, inner sep=1pt},
+    lbl/.style={font=\small, inner sep=2pt}]
+  % --- data: circle of radius 1 centred at O; quarter circle of radius 1 centred at K=(1,1) ---
+  \coordinate (O) at (0,0);
+  \coordinate (K) at (1,1);
 
-\begin{equation*}
-    x^2 + 2xy + y^2 = z^2 + 24z
-\end{equation*}
+  % --- shaded region: circle minus the quarter disc centred at K ---
+  \fill[black!15]
+    (0,1) arc[start angle=90, end angle=360, radius=1]
+          arc[start angle=270, end angle=180, radius=1] -- cycle;
 
-Vinstri hliðina má skrifa sem
+   \fill[black!35]
+    (0,0) -- (0,1) arc[start angle=90, end angle=360, radius=1];
 
-\begin{equation*}
-    (x+y)^2 = (60-z)^2 = 60^2 - 120z + z^2
-\end{equation*}
+  % --- drawing ---
+  \draw[gray, dashed] 
+    (1,0) arc[start angle=0, end angle=90, radius=1]
+    (K) circle (1);
 
-Þá fæst \begin{equation*}
-    144z = 60^2
-\end{equation*}
-sem gefur að $z = 25$.
+  \draw[gray, dashed] (0,1) -- node[lbl, above] {$1$} (K) --  (1,0);                           % corner square
+  \draw[black!70, thick]
+    (0,1) arc[start angle=90, end angle=360, radius=1]
+          arc[start angle=270, end angle=180, radius=1] -- cycle;
+  \draw[black!65] (O) -- node[lbl, below] {$1$} (-1,0);
+  \draw[black]  (0,1) -- (O) -- (1,0);
 
-Þá gefur innsetning í fyrstu jöfnuna að $$y = 35 - x.$$ 
-Setjum það í jöfnu 2 og fáum
-
-\begin{equation*}
-    35x - x^2 = 300
-\end{equation*}
-sem má þátta í $(x-15)(x-20) = 0$ og þá fæst eftirfarandi lausnir $(x,y)=(15,20)$ eða $(x,y)=(20, 15)$.
-
-Því er
-\[
-(x, y, z) = (15, 20, 25).
-\]
+  \node[dot] at (O) {};
+  \node[dot] at (K) {};
+\end{tikzpicture}
+\end{center}
