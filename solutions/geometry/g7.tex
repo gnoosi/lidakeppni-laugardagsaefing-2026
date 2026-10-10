@@ -1,37 +1,70 @@
-Látum $x=AD$ og látum $E$ og $F$ vera lóðfætur frá $B$ og $C$ á línuna $AD$.
-Þá er $\angle BAD=\angle DAC=60^\circ$, svo litlu þríhyrningarnir $ABE$ og $ACF$
-eru $30$–$60$–$90$:
-\[
-AE=\tfrac12\,AB,\quad BE=\tfrac{\sqrt3}{2}\,AB,
-\qquad
-AF=\tfrac12\,AC,\quad CF=\tfrac{\sqrt3}{2}\,AC.
-\]
+Höfum af veldi punkts að $SP^2=SC^2=SA\cdot SB$ þ.e. $\frac{SP}{SA}=\frac{SB}{SP}$ þ.e. $\triangle SAP\sim\triangle SBP$. Fáum af ferilhornssetningu að $\angle PLK=\angle BAP=\angle SPB$. Þa er $SP||KL$
+\newline Lát $X$ vera skurðpunktur snertlana við hringsins í $B$ og $C$. Ath að $\triangle XMC\sim\triangle SPC$ þar sem þau eru bæði jafnarma og deila horni. Þá er $XM||SP||KL$. Þá fer hæðarlínan á $M$ í $\triangle $ gegnum miðju hringsins því $XM$ er snertill og þá hornrétt á geislan. Þá er $M$ jafnlangt frá $K$ og $L$ þ.e. $ML=MK$
 
-\emph{Flatarmál með grunni $AD$:}
-\[
-[ABD]=\tfrac12\cdot x\cdot BE=\frac{\sqrt3}{4}\,x\,AB,\qquad
-[ACD]=\tfrac12\cdot x\cdot CF=\frac{\sqrt3}{4}\,x\,AC,
-\]
-þannig að
-\[
-[ABC]=[ABD]+[ACD]=\frac{\sqrt3}{4}\,x\,(AB+AC). \tag{1}
-\]
+\begin{tikzpicture}[scale=0.8, line cap=round, >=stealth]
+  % hnit (reiknuð nákvæmlega, miðja hrings í (0,0), R = 3)
+  \coordinate (M) at (0,3);
+  \coordinate (K) at (-2.9231,-0.6749);
+  \coordinate (L) at (2.9231,-0.6749);
+  \coordinate (C) at (-1.8054,-2.3959);
+  \coordinate (P) at (-0.8612,0.4262);
+  \coordinate (A) at (2.1868,2.0537);
+  \coordinate (B) at (-2.8289,0.9986);
+  \coordinate (S) at (-5.5504,0.4262);
+  \coordinate (X) at (-8.9661,3);
+  \coordinate (O) at (0,0);
+  \coordinate (hM) at (0, -0.6749)
 
-\emph{Flatarmál með grunni $AC$:}
-Drögum lóðrétta frá $B$ á $AC$; þar sem mjóa hornið milli $AB$ og $AC$ er $60^\circ$
-fæst í $30$–$60$–$90$ að hæðin er $\tfrac{\sqrt3}{2}\,AB$. Því
-\[
-[ABC]=\tfrac12\cdot AC\cdot \Big(\tfrac{\sqrt3}{2}\,AB\Big)
-=\frac{\sqrt3}{4}\,AB\cdot AC. \tag{2}
-\]
+  % umhringur
+  \draw[thick] (O) circle (3);
 
-Samkvæmt (1) og (2) fellur stuðullinn $\tfrac{\sqrt3}{4}$ út og við fáum
-\[
-x(AB+AC)=AB\cdot AC
-\quad\Longrightarrow\quad
-x=\frac{AB\cdot AC}{AB+AC}
-=\frac{2\cdot6}{2+6}
-=\boxed{\tfrac{3}{2}}.
-\]
+  % punktalínur: X--M og X--S
+  \draw[dotted, thick] (X) -- (M);
+  \draw[dotted] (X) -- (S);
 
+  % snertill í C (framlengdur örlítið fram yfir C)
+  \draw (S) -- (C);
 
+  % lína AB framlengd til S
+  \draw (S) -- (A);
+
+  % þríhyrningur ABC
+  \draw (B) -- (C) -- (A);
+
+  \pic [draw, angle radius=10pt, double] {angle = B--P--S};
+  \pic [draw, angle radius=10pt, double] {angle = S--A--P};
+  \pic [draw, angle radius=10pt, double] {angle = B--L--K};
+
+  \pic [draw, angle radius=10pt] {right angle = M--hM--K};
+  \pic [draw, angle radius=10pt] {right angle = X--M--O};
+
+  % línur gegnum P
+  \draw (A) -- (K);
+  \draw (B) -- (L);
+  \draw (C) -- (M);
+
+  % blátt: SP og KL
+  \draw[black!70, very thick] (S) -- (P);
+  \draw[black!70, very thick] (K) -- (L);
+
+  % grænt: MK og ML
+  \draw[black, very thick] (L) -- (M) -- (K);
+  \draw[black!50] (M)--(hM);
+
+  
+
+  % punktar
+  \foreach \p in {M,K,L,C,P,A,B,S,X,O} \fill (\p) circle (1.8pt);
+
+  % nöfn
+  \node[above right] at (M) {\small $M$};
+  \node[above right] at (A) {\small $A$};
+  \node[above]       at (B) {\small $B$};
+  \node[above left]  at (P) {\small $P$};
+  \node[left]        at (K) {\small $K$};
+  \node[right]       at (L) {\small $L$};
+  \node[below left] at (C) {\small $C$};
+  \node[above right] at (S) {\small $S$};
+  \node[above right] at (X) {\small $X$};
+  \node[left] at (O) {\small $O$};
+\end{tikzpicture}
