@@ -1,34 +1,58 @@
-Hugsum okkur samhverfa trapísu þar sem skástrikin eru jafnlöng. Látum \(CD = 1\), \(AB = a\) og \(AD = BC = 1\).
+Setjum $DE=x$ og $PQ=y$. Ath. að $\triangle ABC\sim\triangle ADE\sim\triangle  AQP\sim\triangle SRC$, 
+\newline þannig að $\frac{12}{5}=\frac{AB}{BC}=\frac{AD}{DE}=\frac{AQ}{PQ}=\frac{SR}{RC}$
+\newline Fáum: $\frac{12}{5}x+x=12$ og $\frac{12}{5}y+y+\frac5{12}y=\sqrt{12^2+5^2}=13$ þ.e. $x=\frac{60}{17}$ og $y=\frac{13\cdot 60}{144+60+25}$. Þá er $\frac{x}{y}=\dfrac{\frac{60}{17}}{\frac{13\cdot60}{229}}=\dfrac{229}{13\cdot17}=\dfrac{229}{221}$ fullstytt brot. Fáum þá að $n+m=229+221=450$
+\begin{center}
+\begin{tikzpicture}[scale=0.4,
+    dot/.style={circle, fill=black!80, draw=black, line width=0.3pt, inner sep=1pt},
+    lbl/.style={font=\small, inner sep=2pt}]
+  % --- data: legs |AB|=12, |BC|=5, hypotenuse 13 ---
+  \pgfmathsetmacro{\s}{60/17}       % side of square DEFB (corner at B)
+  \pgfmathsetmacro{\t}{780/229}     % side of square PQRS (side on CA)
+  \pgfmathsetmacro{\lr}{5*\t/12}    % |CR|
+  \pgfmathsetmacro{\lq}{\lr+\t}     % |CQ|
 
-Drögum hornrétta línu úr \(D\) niður á \(AB\) og köllum fót hennar \(P\). Látum \(DP\) vera hæð trapísunnar og \(AP = x\). Þar sem trapísan er samhverf gildir
-\[
-AB = 1 + 2x \quad \Rightarrow \quad x = \frac{a - 1}{2}.
-\]
+  % --- left figure ---
+  \begin{scope}
+    \coordinate (A) at (0,12);
+    \coordinate (B) at (0,0);
+    \coordinate (C) at (5,0);
+    \coordinate (D) at (0,\s);
+    \coordinate (E) at (\s,\s);
+    \coordinate (F) at (\s,0);
 
-Í rétthyrnda þríhyrningnum \(ADP\) vitum við að \(AD = 1\) og \(AP = x\). Samkvæmt Pýþágóras fæst
-\[
-DP^2 = 1^2 - x^2. \tag{1}
-\]
+    \draw[black!70, thick] (A) -- (B) -- (C) -- cycle;
+    \draw[black!45, thick] (D) -- node[lbl, midway, above, black] {$x$}(E) -- (F);
+    \draw[black!70, thick] (A) -- node[lbl, midway, left, black] {$\frac{12}{5}x$}(D) -- node[lbl, midway, left, black] {$x$}(B);
 
-Í þríhyrningnum \(ACP\) er \(AC = a\), \(CP = x + 1\) og sama hæð \(DP\). Þá gildir
-\[
-a^2 = (x + 1)^2 + DP^2. \tag{2}
-\]
+    \node[dot] at (A) {}; \node[lbl, above] at (A) {$A$};
+    \node[dot] at (B) {}; \node[lbl, below left] at (B) {$B$};
+    \node[dot] at (C) {}; \node[lbl, below right] at (C) {$C$};
+    \node[dot] at (D) {}; \node[lbl, left] at (D) {$D$};
+    \node[dot] at (E) {}; \node[lbl, right] at (E) {$E$};
+    \node[dot] at (F) {}; \node[lbl, below] at (F) {$F$};
+  \end{scope}
 
-Setjum (1) inn í (2):
-\[
-a^2 = (x + 1)^2 + 1 - x^2 = 2x + 2.
-\]
-Setjum \(x = \tfrac{a - 1}{2}\):
-\[
-a^2 = a + 1.
-\]
-Því fæst jöfnan
-\[
-a^2 - a - 1 = 0.
-\]
+  % --- right figure ---
+  \begin{scope}[xshift=9cm]
+    \coordinate (A) at (0,12);
+    \coordinate (B) at (0,0);
+    \coordinate (C) at (5,0);
+    \coordinate (R) at ({5-5*\lr/13},{12*\lr/13});
+    \coordinate (Q) at ({5-5*\lq/13},{12*\lq/13});
+    \coordinate (S) at ($(R)+({-12*\t/13},{-5*\t/13})$);
+    \coordinate (P) at ($(Q)+({-12*\t/13},{-5*\t/13})$);
 
-Þar sem \(a > 1\) fáum við jákvæðu lausnina
-\[
-a = \frac{1 + \sqrt{5}}{2}.
-\]
+    \draw[black!70, thick] (A) -- (B) -- (C) -- cycle;
+    \draw[black!45, thick] (Q) -- node[lbl, midway, above, black] {$y$}(P) -- (S) -- node[lbl, midway, above, black] {$y$}(R);
+    \draw[black!70, thick] (A) -- node[lbl, midway, right, black] {$\frac{12}{5}y$}(Q) -- node[lbl, midway, right, black] {$y$}(R) -- node[lbl, midway, right, black] {$\frac{5}{12}y$}(C);
+
+    \node[dot] at (A) {}; \node[lbl, above] at (A) {$A$};
+    \node[dot] at (B) {}; \node[lbl, below left] at (B) {$B$};
+    \node[dot] at (C) {}; \node[lbl, below right] at (C) {$C$};
+    \node[dot] at (P) {}; \node[lbl, left] at (P) {$P$};
+    \node[dot] at (Q) {}; \node[lbl, above right] at (Q) {$Q$};
+    \node[dot] at (R) {}; \node[lbl, above right] at (R) {$R$};
+    \node[dot] at (S) {}; \node[lbl, below] at (S) {$S$};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
