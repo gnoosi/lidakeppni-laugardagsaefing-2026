@@ -1,61 +1,45 @@
-% Lausn — DMO 2002 (rúmfræði, innanmálspunktur)
-Við vitum að $\triangle ABC$ er jafnarma og rétthyrndur þannig að
-\[
-\angle A=\angle B=45^\circ .
-\]
+Setjum $O_1$ og $O_2$ sem miðju hringjanna. Ath. að $\triangle O_1AE$ og $\triangle O_1CE$, og $\triangle O_2BE$ og $\triangle O_2DE$ eru eins. Þá er $EA=EC$ og $EB=ED$.
+\newline Fáum: $EA+\frac12EA=6$, $EB+2EB=6$ og $CD=EC-ED$ þ.a. $CD=4-2=2$.
 
-Skoðum nú $\triangle MCB$ og $\triangle MBA$. Úr gefnum lengdum fæst
-\[
-\frac{MB}{MC}=\frac{\sqrt2}{1}=\sqrt2,
-\qquad
-\frac{MA}{MB}=\frac{2}{\sqrt2}=\sqrt2.
-\]
-Athugum einnig að með Pýþagórasi í $\triangle ABC$ fæst
-\[
-AB^2 = AC^2+BC^2 = 2\,BC^2 \;\Rightarrow\; \frac{AB}{CB}=\sqrt2.
-\]
-Þar með eru allar samsvarandi hlutfallshliðar þær sömu og því er $\triangle MCB \sim \triangle MBA$.
+\begin{center}
+\begin{tikzpicture}[
+    dot/.style={circle, fill=black!80, draw=black, line width=0.3pt, inner sep=1pt},
+    lbl/.style={font=\small, inner sep=2pt}]
+  % --- data: centres and radii (change these freely) ---
+  \def\xa{0}    \def\ya{0}     \def\ra{1.30}  % small circle
+  \def\xb{3.55} \def\yb{-0.28} \def\rb{2.08}  % large circle
 
-Látum nú
-\[
-\angle CBM = x.
-\]
-Þar sem $\angle B=45^\circ$ fæst klofningin
-\[
-\angle MBA=45^\circ-x.
-\]
-Af einslögunni fylgir
-\[
-\angle MCB=\angle MBA=45^\circ-x
-\quad\text{og}\quad
-\angle MBC=\angle MAB=x.
-\]
-Í $\triangle MCB$ eru því tvö horn $x$ og $45^\circ-x$, svo
-\[
-\angle CMB
-= 180^\circ-\bigl(x+(45^\circ-x)\bigr)
-=135^\circ,
-\]
-og samhliða í $\triangle MBA$ fæst
-\[
-\angle AMB=135^\circ.
-\]
-Því er
-\[
-\angle CMA
-=360^\circ-\angle CMB-\angle AMB
-=360^\circ-135^\circ-135^\circ
-=90^\circ.
-\]
+  % --- tangent directions ---
+  \pgfmathsetmacro{\dist}{veclen(\xb-\xa,\yb-\ya)}
+  \pgfmathsetmacro{\ang}{atan2(\yb-\ya,\xb-\xa)}
+  \pgfmathsetmacro{\tout}{\ang+acos((\ra-\rb)/\dist)} % external tangent
+  \pgfmathsetmacro{\tin}{\ang-acos((\ra+\rb)/\dist)}  % internal tangent
 
-Nú er $\triangle AMC$ rétthyrndur með aðlægum hliðum $MA=2$ og $MC=1$, þannig að
-\[
-AC=\sqrt{MA^2+MC^2}=\sqrt{2^2+1^2}=\sqrt{5}.
-\]
+  \coordinate (O1) at (\xa,\ya);
+  \coordinate (O2) at (\xb,\yb);
+  \coordinate (A) at ($(O1)+(\tout:\ra)$);
+  \coordinate (B) at ($(O2)+(\tout:\rb)$);
+  \coordinate (C) at ($(O1)+(\tin:\ra)$);
+  \coordinate (D) at ($(O2)+(\tin+180:\rb)$);
+  \coordinate (E) at (intersection of A--B and C--D);
 
-Að lokum beitum við Pýþagórasi í $\triangle ABC$:
-\[
-AB^2=AC^2+BC^2=AC^2+AC^2=2\,AC^2=2\cdot 5=10,
-\qquad
-\Rightarrow\quad AB=\sqrt{10}.
-\]
+  % --- drawing ---
+  \draw[black!45] (O1) circle (\ra);
+  \draw[black!45] (O2) circle (\rb);
+  \draw[black!70, thick] 
+    (A) -- (B) 
+    (C) -- (E)
+    (A) -- (O1) -- (C)
+    (B) -- (O2) -- (D);
+  \draw[black, dotted, thick]
+    (O1) -- (E) -- (O2);
+
+  \node[dot] at (A) {}; \node[lbl, above] at (A) {$A$};
+  \node[dot] at (B) {}; \node[lbl, above] at (B) {$B$};
+  \node[dot] at (E) {}; \node[lbl, above] at (E) {$E$};
+  \node[dot] at (D) {}; \node[lbl, left]  at (D) {$D$};
+  \node[dot] at (C) {}; \node[lbl, below]  at (C) {$C$};
+  \node[dot] at (O1) {}; \node[lbl, left]  at (O1) {$O_1$};
+  \node[dot] at (O2) {}; \node[lbl, below left]  at (O2) {$O_2$};
+\end{tikzpicture}
+\end{center}
